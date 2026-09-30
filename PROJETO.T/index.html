@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Site institucional sobre acessibilidade web com painel de ajustes de leitura e contraste."
+    />
+    <title>Acessibilidade para Todos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+
+    <button
+      id="panelToggle"
+      class="panel-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="accessibilityPanel"
+    >
+      Acessibilidade
+    </button>
+
+    <aside
+      id="accessibilityPanel"
+      class="accessibility-panel"
+      aria-label="Painel de acessibilidade"
+    >
+      <div class="panel-header">
+        <h2>Painel de acessibilidade</h2>
+        <button id="closePanel" type="button" class="close-button" aria-label="Fechar painel">
+          ×
+        </button>
+      </div>
+
+      <div class="panel-content">
+        <div class="quick-actions" aria-label="Ações rápidas de acessibilidade">
+          <button class="action-btn" data-action="increase-font" type="button" aria-label="Aumentar texto">🔠 Aumentar</button>
+          <button class="action-btn" data-action="decrease-font" type="button" aria-label="Diminuir texto">🔡 Diminuir</button>
+          <button class="action-btn" data-action="toggle-contrast" type="button" aria-label="Ativar contraste alto">🌓 Contraste</button>
+          <button class="action-btn" data-action="read-page" type="button" aria-label="Ler página">🔊 Ler</button>
+          <button class="action-btn" data-action="stop-reading" type="button" aria-label="Parar leitura">⏹️ Parar</button>
+        </div>
+
+        <div class="mini-panel">
+          <div class="mini-grid">
+            <label class="mini-toggle" for="contrastToggle">
+              <span>Contraste</span>
+              <input id="contrastToggle" type="checkbox" />
+            </label>
+            <label class="mini-toggle" for="darkModeToggle">
+              <span>Escuro</span>
+              <input id="darkModeToggle" type="checkbox" />
+            </label>
+            <label class="mini-toggle" for="focusToggle">
+              <span>Foco</span>
+              <input id="focusToggle" type="checkbox" />
+            </label>
+          </div>
+        </div>
+
+        <div class="minimal-controls">
+          <div class="control-group">
+            <label for="fontSize">Fonte</label>
+            <div class="range-wrapper">
+              <input id="fontSize" type="range" min="90" max="150" step="5" value="100" />
+              <span id="fontSizeValue">100%</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="lineHeight">Linhas</label>
+            <div class="range-wrapper">
+              <input id="lineHeight" type="range" min="100" max="180" step="10" value="140" />
+              <span id="lineHeightValue">1.4</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="letterSpacing">Letras</label>
+            <div class="range-wrapper">
+              <input id="letterSpacing" type="range" min="0" max="12" step="1" value="0" />
+              <span id="letterSpacingValue">0px</span>
+            </div>
+          </div>
+
+          <label class="toggle-row full-row" for="motionToggle">
+            <span>Sem animação</span>
+            <input id="motionToggle" type="checkbox" />
+          </label>
+
+          <label class="toggle-row full-row" for="cursorToggle">
+            <span>Cursor ampliado</span>
+            <input id="cursorToggle" type="checkbox" />
+          </label>
+        </div>
+
+        <button id="resetSettings" class="reset-button" type="button">Restaurar padrão</button>
+      </div>
+    </aside>
+
+    <header class="site-header">
+      <div class="container topbar">
+        <div class="brand" aria-label="Logo do site Acessibilidade para Todos">
+          <span class="brand-mark">A</span>
+          <span>Acessibilidade para Todos</span>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#recursos">Recursos</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo-principal">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Design inclusivo</p>
+            <h1>Um site pensado para todas as pessoas.</h1>
+            <p class="lead">
+              A acessibilidade digital não é apenas uma exigência técnica: ela garante que pessoas
+              com diferentes perfis e necessidades consigam ler, navegar e compreender conteúdos com
+              autonomia e conforto.
+            </p>
+            <div class="actions">
+              <a href="#recursos" class="primary-btn">Ver recursos</a>
+              <button type="button" class="secondary-btn" id="openPanelButton">Abrir painel</button>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Resumo de acessibilidade no site">
+            <div class="stat-card">
+              <strong>8</strong>
+              <span>recursos ativáveis</span>
+            </div>
+            <div class="stat-card">
+              <strong>WCAG</strong>
+              <span>diretrizes inspiradas</span>
+            </div>
+            <div class="stat-card">
+              <strong>100%</strong>
+              <span>foco em inclusão</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="section">
+        <div class="container section-header">
+          <p class="eyebrow">Por que isso importa</p>
+          <h2>Web acessível melhora a experiência de todos.</h2>
+        </div>
+
+        <div class="container feature-grid">
+          <article class="info-card">
+            <h3>Leitura mais confortável</h3>
+            <p>
+              Ajustes de fonte, linha e espaçamento ajudam pessoas com baixa visão, dificuldade de
+              leitura e cansaço visual.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>Melhor navegação</h3>
+            <p>
+              Foco visível, contraste e cursor mais evidente favorecem quem usa teclado, mouse ou
+              tecnologias assistivas.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>Ambiente inclusivo</h3>
+            <p>
+              Reduzir animações e oferecer modos alternativos cria um ambiente mais claro e menos
+              sobrecarregante.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="recursos" class="section alt-section">
+        <div class="container section-header">
+          <p class="eyebrow">Recursos do painel</p>
+          <h2>Oito ajustes que apoiam a navegação.</h2>
+        </div>
+
+        <div class="container panel-preview">
+          <div class="preview-card">
+            <ul class="resource-list">
+              <li>1. Ajuste de tamanho da fonte</li>
+              <li>2. Espaçamento entre linhas</li>
+              <li>3. Espaçamento entre letras</li>
+              <li>4. Contraste alto</li>
+              <li>5. Modo escuro</li>
+              <li>6. Foco visível</li>
+              <li>7. Sem animação</li>
+              <li>8. Cursor ampliado</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios" class="section">
+        <div class="container two-column">
+          <div>
+            <p class="eyebrow">Aplicação prática</p>
+            <h2>Como a acessibilidade transforma experiências digitais.</h2>
+            <p>
+              O painel está integrado ao site para permitir que qualquer pessoa personalize a
+              navegação sem perder a identidade visual da página. Esse tipo de recurso é especialmente
+              útil em instituições, educacionais, portais públicos e e-commerces que desejam garantir
+              atendimento inclusivo.
+            </p>
+          </div>
+
+          <div class="callout">
+            <h3>Boa prática</h3>
+            <p>
+              O uso de texto claro, contraste adequado, foco realçado e alternâncias de visualização é
+              uma estratégia eficiente para promover autonomia e reduzir barreiras de leitura.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq-section">
+        <div class="container section-header">
+          <p class="eyebrow">Perguntas frequentes</p>
+          <h2>Dúvidas sobre inclusão digital</h2>
+        </div>
+
+        <div class="container faq-list">
+          <details open>
+            <summary>Quem pode se beneficiar do painel?</summary>
+            <p>Usuários com baixa visão, dislexia, dificuldades motoras e pessoas que desejam ler com mais conforto.</p>
+          </details>
+
+          <details>
+            <summary>O painel altera o layout principal?</summary>
+            <p>Sim, ele ajusta a apresentação visual do conteúdo de forma discreta e mantém a estrutura do site intacta.</p>
+          </details>
+
+          <details>
+            <summary>Ele funciona em navegadores modernos?</summary>
+            <p>Sim, o projeto foi desenvolvido com HTML, CSS e JavaScript sem dependências externas complexas.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Acessibilidade para Todos</p>
+        <p>Desenvolvido para promover inclusão digital.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
